@@ -3,145 +3,234 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Artigos Científicos 2019–2025 – IWE Polo Cascadura</title>
+<title>Acervo de Artigos Científicos 2019–2025 – IWE Polo Cascadura</title>
+<meta name="description" content="Trabalhos de Conclusão do Curso Livre em Teologia do Instituto Wesleyano de Educação – Polo Cascadura, de 2019 a 2025.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,800&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
 <style>
-  :root{--ink:#1d2433;--muted:#5b6475;--line:#e3ded3;--paper:#fbf8f2;--card:#fff;--navy:#1f3a5f;--navy-2:#16294a;--gold:#b8862f;--gold-soft:#f3e7cf}
+  :root{
+    --bg:#F6F6F4; --paper:#FFFFFF; --ink:#18181B; --muted:#66666E; --line:#DEDDD8;
+    --wine:#7A1F35; --wine-deep:#561424; --rose:#F3E3E7;
+    --sans:"Bricolage Grotesque",system-ui,sans-serif; --serif:"Newsreader",Georgia,serif;
+  }
   *{box-sizing:border-box}
-  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Source Sans 3",system-ui,sans-serif;font-size:17px;line-height:1.5}
-  .wrap{max-width:1120px;margin:0 auto}
-  header{background:linear-gradient(160deg,var(--navy) 0%,var(--navy-2) 100%);color:#fff;padding:56px 24px 60px}
-  .kicker{letter-spacing:.14em;text-transform:uppercase;font-size:13px;font-weight:700;color:#e9cf9b}
-  h1{font-family:"Fraunces",Georgia,serif;font-weight:700;font-size:clamp(32px,5vw,52px);line-height:1.08;margin:10px 0 14px}
-  .sub{max-width:660px;color:#d6deea;font-size:18px;margin:0}
-  .stats{display:flex;gap:32px;flex-wrap:wrap;margin-top:28px}
-  .stat b{display:block;font-family:"Fraunces",serif;font-size:30px;color:#fff}
-  .stat span{font-size:14px;color:#b9c6da}
-  .tools{position:sticky;top:0;z-index:5;background:rgba(251,248,242,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
-  .tabs{display:flex;gap:6px;overflow-x:auto;padding:12px 24px 0;scrollbar-width:none}
-  .tabs::-webkit-scrollbar{display:none}
-  .tab{font:inherit;font-size:15px;font-weight:600;border:1px solid var(--line);background:#fff;color:var(--ink);padding:7px 14px;border-radius:99px;cursor:pointer;white-space:nowrap}
-  .tab small{color:var(--muted);font-weight:400;margin-left:4px}
-  .tab[aria-pressed=true]{background:var(--navy);border-color:var(--navy);color:#fff}
-  .tab[aria-pressed=true] small{color:#c9d4e6}
-  .filters{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding:12px 24px 14px}
-  input[type=search],select{font:inherit;font-size:16px;padding:9px 13px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
-  input[type=search]{flex:1 1 260px}
-  select{flex:0 1 230px;min-width:0}
-  .count{font-size:14px;color:var(--muted);margin-left:auto}
-  main .wrap{padding:8px 24px 64px}
-  .year{margin-top:32px}
-  .year h2{font-family:"Fraunces",serif;font-size:30px;margin:0 0 4px;color:var(--navy-2);display:flex;align-items:baseline;gap:12px}
-  .year h2 span{font-family:"Source Sans 3",sans-serif;font-size:15px;color:var(--muted);font-weight:400}
-  .year .note{margin:0 0 14px;font-size:14.5px;color:var(--muted)}
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px;margin-top:14px}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 20px 16px;display:flex;flex-direction:column;gap:9px;transition:box-shadow .15s,transform .15s}
-  .card:hover{box-shadow:0 8px 24px rgba(31,58,95,.10);transform:translateY(-2px)}
-  .top{display:flex;justify-content:space-between;gap:8px;font-size:13px;font-weight:700;letter-spacing:.05em;color:var(--gold)}
-  .top .polo{color:var(--muted);font-weight:600;letter-spacing:0}
-  .card h3{font-family:"Fraunces",Georgia,serif;font-weight:500;font-size:19px;line-height:1.28;margin:0;color:var(--navy-2)}
-  .card h3.pending{color:var(--muted);font-style:italic}
-  .meta{font-size:15px;color:var(--muted);margin:0}
-  .meta strong{color:var(--ink);font-weight:600}
-  .tags{display:flex;flex-wrap:wrap;gap:6px}
-  .tag{background:var(--gold-soft);color:#7a5714;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:99px;border:0;font-family:inherit;cursor:pointer}
-  .tag:hover{background:#ecd9b3}
-  .actions{margin-top:auto;padding-top:6px}
-  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;text-decoration:none;font-weight:600;font-size:15px;padding:9px 15px;border-radius:10px}
-  .btn:hover{background:var(--navy-2)}
-  .btn svg{width:15px;height:15px}
-  .empty{display:none;text-align:center;color:var(--muted);padding:48px 0}
-  .clear{font:inherit;font-size:14px;background:none;border:0;color:var(--navy);text-decoration:underline;cursor:pointer;padding:0}
-  footer{border-top:1px solid var(--line);color:var(--muted);font-size:14px}
-  footer .wrap{padding:24px}
-  @media (max-width:560px){header{padding:40px 18px 44px}.tabs,.filters{padding-left:16px;padding-right:16px}main .wrap{padding-left:16px;padding-right:16px}.count{margin-left:0}select{flex:1 1 45%}}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  :focus-visible{outline:2px solid var(--wine);outline-offset:3px;border-radius:4px}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+
+  /* Hero */
+  .hero{padding:56px 0 0;background:var(--paper);border-bottom:1px solid var(--line)}
+  .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:48px;align-items:end}
+  .inst{display:flex;align-items:center;gap:12px;font-size:15px;color:var(--muted);margin-bottom:44px}
+  .mark{width:34px;height:34px;border-radius:50%;background:var(--wine);display:grid;place-items:center;flex:none}
+  .mark svg{width:16px;height:16px}
+  .inst b{color:var(--ink);font-weight:600}
+  h1{font-weight:800;font-size:clamp(44px,6.4vw,84px);line-height:.94;letter-spacing:-.035em;margin:0 0 22px;font-variation-settings:"opsz" 96}
+  .lede{font-size:18px;color:var(--muted);max-width:44ch;margin:0 0 40px}
+  .facts{display:flex;gap:28px;font-size:15px;color:var(--muted);padding-bottom:44px}
+  .facts strong{display:block;font-size:26px;color:var(--ink);font-weight:600;letter-spacing:-.02em}
+
+  /* Shelf */
+  .shelf-wrap{position:relative}
+  .shelf{display:flex;align-items:flex-end;gap:10px;height:300px;padding:0 4px}
+  .spine{flex:1 1 0;min-width:46px;position:relative;border:0;cursor:pointer;font-family:var(--sans);
+    background:#E9E7E2;color:var(--ink);border-radius:5px 5px 0 0;padding:14px 0 12px;
+    display:flex;flex-direction:column;align-items:center;justify-content:space-between;
+    transform-origin:bottom;transition:background .2s,color .2s}
+  .spine::before{content:"";position:absolute;left:0;right:0;top:22%;height:2px;background:currentColor;opacity:.18}
+  .spine::after{content:"";position:absolute;left:0;right:0;top:calc(22% + 6px);height:2px;background:currentColor;opacity:.18}
+  .spine .yr{writing-mode:vertical-rl;transform:rotate(180deg);font-weight:800;font-size:clamp(22px,2.4vw,30px);letter-spacing:-.02em;margin-top:auto;margin-bottom:10px}
+  .spine .n{font-size:13px;font-weight:500;opacity:.75}
+  .spine:nth-child(3n+2){background:#E1DED7}.spine:nth-child(3n){background:#ECEAE5}
+  .spine:hover{background:#D6D2CA}
+  .spine[aria-pressed=true]{background:var(--wine);color:#fff}
+  .spine[aria-pressed=true]:hover{background:var(--wine-deep)}
+  .shelf-base{height:10px;background:var(--ink);border-radius:2px}
+  .shelf-cap{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:var(--muted);padding:12px 0 18px}
+  .all{font:inherit;font-size:14px;font-weight:600;color:var(--wine);background:none;border:0;padding:4px 0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+  .all[aria-pressed=true]{visibility:hidden}
+  @media (prefers-reduced-motion:no-preference){
+    .spine{animation:rise .7s cubic-bezier(.2,.8,.2,1) both}
+    @keyframes rise{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+  }
+
+  /* Toolbar */
+  .tools{position:sticky;top:0;z-index:5;background:rgba(246,246,244,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .tools .wrap{display:flex;gap:10px;align-items:center;padding-top:14px;padding-bottom:14px;flex-wrap:wrap}
+  .field{position:relative;flex:1 1 300px}
+  .field svg{position:absolute;left:14px;top:50%;width:17px;height:17px;transform:translateY(-50%);color:var(--muted)}
+  input[type=search],select{font:inherit;font-size:15px;height:44px;border:1px solid var(--line);border-radius:999px;background:var(--paper);color:var(--ink);padding:0 16px}
+  input[type=search]{width:100%;padding-left:40px}
+  select{flex:0 1 220px;min-width:0;appearance:none;padding-right:36px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%2366666E' stroke-width='1.6'%3E%3Cpath d='M1 1.5l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+  .count{font-size:14px;color:var(--muted);margin-left:auto;white-space:nowrap}
+
+  /* Index */
+  main{padding:8px 0 96px}
+  .year{display:grid;grid-template-columns:200px minmax(0,1fr);gap:32px;padding-top:48px}
+  .year-head{position:sticky;top:96px;align-self:start}
+  .year-head h2{font-size:64px;line-height:1;font-weight:800;letter-spacing:-.04em;margin:0;color:var(--wine)}
+  .year-head p{margin:10px 0 0;font-size:14px;color:var(--muted);max-width:22ch}
+  .entries{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
+  .entry{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 32px;padding:22px 0 24px;border-bottom:1px solid var(--line)}
+  .entry h3{grid-column:1;font-family:var(--serif);font-weight:400;font-size:22px;line-height:1.3;margin:0;max-width:60ch;font-variation-settings:"opsz" 36}
+  .entry h3.pending{color:var(--muted);font-style:italic}
+  .who{grid-column:1;margin:0;font-size:15px;color:var(--muted)}
+  .who b{color:var(--ink);font-weight:600}
+  .chips{grid-column:1;display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+  .chip{font:inherit;font-size:13px;font-weight:500;background:transparent;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:3px 11px;cursor:pointer}
+  .chip:hover{border-color:var(--wine);color:var(--wine)}
+  .chip.polo{border-color:transparent;background:var(--rose);color:var(--wine-deep);cursor:default}
+  .open{grid-column:2;grid-row:1 / span 3;align-self:center;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;
+    text-decoration:none;font-weight:600;font-size:15px;color:var(--ink);border:1.5px solid var(--ink);border-radius:999px;padding:10px 18px;transition:background .15s,color .15s}
+  .open:hover{background:var(--ink);color:#fff}
+  .open svg{width:15px;height:15px}
+  .empty{display:none;padding:80px 0;text-align:center;color:var(--muted);font-size:17px}
+  .empty button{font:inherit;color:var(--wine);background:none;border:0;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+
+  footer{background:var(--ink);color:#BDBDC4;font-size:14px}
+  footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;padding-top:36px;padding-bottom:36px}
+  footer b{color:#fff;font-weight:600}
+
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:8px}
+    .facts{padding-bottom:28px}
+    .shelf{height:200px;overflow-x:auto}
+    .year{grid-template-columns:1fr;gap:12px;padding-top:40px}
+    .year-head{position:static;display:flex;align-items:baseline;gap:14px}
+    .year-head h2{font-size:48px}
+    .year-head p{margin:0}
+  }
+  @media (max-width:600px){
+    .wrap{padding:0 18px}
+    .hero{padding-top:36px}
+    .inst{margin-bottom:28px}
+    .shelf{gap:6px}
+    .spine{min-width:38px}
+    .entry{grid-template-columns:1fr}
+    .open{grid-column:1;grid-row:auto;justify-self:start;margin-top:8px}
+    .entry h3{font-size:20px}
+    select{flex:1 1 45%}
+    .count{margin-left:0}
+  }
 </style>
 </head>
 <body>
-<header>
+<header class="hero">
   <div class="wrap">
-    <div class="kicker">Instituto Wesleyano de Educação · Polo Cascadura</div>
-    <h1>Artigos Científicos 2019–2025</h1>
-    <p class="sub">Acervo dos Trabalhos de Conclusão do Curso Livre em Teologia. Escolha um ano, busque por tema, autor ou orientador e abra o artigo completo em PDF.</p>
-    <div class="stats">
-      <div class="stat"><b id="sTotal">–</b><span>artigos</span></div>
-      <div class="stat"><b id="sYears">–</b><span>turmas</span></div>
-      <div class="stat"><b id="sOrient">–</b><span>orientadores</span></div>
+    <div class="inst">
+      <span class="mark" aria-hidden="true"><svg viewBox="0 0 16 16" fill="#fff"><rect x="7" y="1" width="2" height="14" rx="1"/><rect x="2.5" y="5" width="11" height="2" rx="1"/></svg></span>
+      <span><b>Instituto Wesleyano de Educação</b> – Polo Cascadura</span>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <h1>Acervo de artigos científicos</h1>
+        <p class="lede">Os Trabalhos de Conclusão do Curso Livre em Teologia, de 2019 a 2025. Escolha um ano na estante ou procure por tema, autor e orientador.</p>
+        <div class="facts">
+          <div><strong id="fTotal">–</strong>artigos</div>
+          <div><strong id="fYears">–</strong>turmas</div>
+          <div><strong id="fOrient">–</strong>orientadores</div>
+        </div>
+      </div>
+      <div class="shelf-wrap">
+        <div class="shelf" id="shelf" role="toolbar" aria-label="Escolher ano"></div>
+        <div class="shelf-base"></div>
+        <div class="shelf-cap"><span id="shelfNote">Mostrando todos os anos</span><button class="all" id="all" aria-pressed="true">Ver todos os anos</button></div>
+      </div>
     </div>
   </div>
 </header>
 
 <div class="tools">
   <div class="wrap">
-    <div class="tabs" id="tabs" role="toolbar" aria-label="Escolher ano"></div>
-    <div class="filters">
-      <input type="search" id="q" placeholder="Buscar por título, autor, orientador…" aria-label="Buscar artigos">
-      <select id="tema" aria-label="Filtrar por tema"><option value="">Todos os temas</option></select>
-      <select id="orient" aria-label="Filtrar por orientador"><option value="">Todos os orientadores</option></select>
-      <span class="count" id="count"></span>
-    </div>
+    <label class="field">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" id="q" placeholder="Buscar título, autor ou orientador" aria-label="Buscar artigos">
+    </label>
+    <select id="tema" aria-label="Filtrar por tema"><option value="">Todos os temas</option></select>
+    <select id="orient" aria-label="Filtrar por orientador"><option value="">Todos os orientadores</option></select>
+    <span class="count" id="count" aria-live="polite"></span>
   </div>
 </div>
 
-<main><div class="wrap">
-  <div id="list"></div>
-  <p class="empty" id="empty">Nenhum artigo encontrado com esses filtros. <button class="clear" id="clear">Limpar filtros</button></p>
-</div></main>
+<main>
+  <div class="wrap">
+    <div id="list"></div>
+    <p class="empty" id="empty">Nenhum artigo com esses filtros. <button id="clear">Limpar a busca</button></p>
+  </div>
+</main>
 
-<footer><div class="wrap">Instituto Wesleyano de Educação – Curso Livre em Teologia – Polo Cascadura · Disciplina de TCC: Prof. Alexandre Prado</div></footer>
+<footer>
+  <div class="wrap">
+    <span><b>Instituto Wesleyano de Educação</b> – Curso Livre em Teologia – Polo Cascadura</span>
+    <span>Disciplina de TCC: Prof. Alexandre Prado</span>
+  </div>
+</footer>
 
 <script>
 const ARTIGOS = [{"y": "2019", "p": "Cascadura", "t": "Ministério feminino: funcionalidade e influência na atualidade", "a": "Adileia Alves da Silva", "o": "", "k": ["Ministério"], "id": "1uErO_9gpJhESDg6MYDW1MiziQG1ntuNF"}, {"y": "2019", "p": "Cascadura", "t": "Discipulado: resgatando o propósito da igreja primitiva e a importância para a igreja atual", "a": "Carlos André de Andrade Soares", "o": "", "k": ["Discipulado"], "id": "1UUVt9HqD-yUaoF4kpYFMuCjowCSTHUjv"}, {"y": "2019", "p": "Cascadura", "t": "Conhecendo o verdadeiro sentido da música como louvor e adoração na liturgia do culto nos dias atuais", "a": "Cristiane José Damasceno Santos", "o": "", "k": ["Música e adoração"], "id": "16glTDzV8Frr-Dkdq0Dt5LkWrOTsfcK-A"}, {"y": "2019", "p": "Cascadura", "t": "Exegese bíblica como ferramenta de pregação do evangelho nos púlpitos", "a": "Diogo Pires da Silva", "o": "", "k": ["Bíblia e exegese", "Pregação"], "id": "1Y0mWKKfZG1qkD5t_iUfdyyNsbSB-xhJD"}, {"y": "2019", "p": "Cascadura", "t": "Rute: uma estrangeira étnica na comunidade de Israel", "a": "Elí Galvão", "o": "", "k": ["Bíblia e exegese"], "id": "1EjlN3tHGn-haiQcS3ZNbGh2qMXeyezMA"}, {"y": "2019", "p": "Cascadura", "t": "Escola Bíblica Dominical e os desafios de inovar, discipular e ensinar sob a ótica cristã", "a": "Israel Lima Santos Souza", "o": "", "k": ["Educação cristã e EBD"], "id": "1Sh45LtmWgvTtabEgFLzcagvdpzCbUGC3"}, {"y": "2019", "p": "Cascadura", "t": "A pregação da Palavra: princípio bíblico para um crescimento saudável do corpo de Cristo em nosso tempo", "a": "Jair Baptista de Oliveira", "o": "", "k": ["Pregação", "Crescimento da igreja"], "id": "10Xqn6HOoDmhUxhaqFq2_KsL9vcF8ZtuI"}, {"y": "2019", "p": "Cascadura", "t": "O cristão e o meio ambiente: um panorama da responsabilidade teológica", "a": "Joevaldo Luiz da Silva", "o": "", "k": ["Igreja e sociedade"], "id": "1UTmldbQdosSY3Sp-O3XU5dqX-HpqniSN"}, {"y": "2019", "p": "Cascadura", "t": "Teologia da prosperidade: a corrupção do sagrado", "a": "Josafá Siqueira", "o": "", "k": ["Doutrina"], "id": "1fM2uqeGpSppjNo6TfF08V0ZG0N9bdBU2"}, {"y": "2019", "p": "Cascadura", "t": "O pequeno grupo e seu papel no processo de evangelismo pessoal", "a": "José Alves dos Santos Júnior", "o": "", "k": ["Pequenos grupos", "Evangelização e missão"], "id": "1LDedwOVhQ8qXyXoi3zE7ht0-DLgZBjlg"}, {"y": "2019", "p": "Cascadura", "t": "Vocação pastoral e os desafios contemporâneos", "a": "Marcelo Ferreira dos Santos", "o": "", "k": ["Ministério"], "id": "1UBJL0lAm32i-C-00s7R76Yt2xcbsfi7A"}, {"y": "2019", "p": "Cascadura", "t": "A relevância dos pequenos grupos nos dias atuais: a visão dos pequenos grupos na ótica bíblica", "a": "Misael Souza de Almeida", "o": "", "k": ["Pequenos grupos"], "id": "1LjsCtqDCqSxgL6K5FDQhaS6OQIFme4mb"}, {"y": "2019", "p": "Cascadura", "t": "Liderança e vocação ministerial: o pastor como líder do rebanho de Deus", "a": "Rafael Fernandes Sadik", "o": "", "k": ["Liderança", "Ministério"], "id": "1-rt72-Lfjf_Lzx3HvjqmEZmCK3VnRMnO"}, {"y": "2019", "p": "Cascadura", "t": "Evangelismo e missões: plantação de igreja e o desafio de sua expansão na sociedade", "a": "Robson de Azeredo Coutinho", "o": "", "k": ["Evangelização e missão"], "id": "1RcbbdxG0u2ZVDOY0xEO-TAB3fwgEkJ7Z"}, {"y": "2019", "p": "Cascadura", "t": "Aconselhamento pastoral: o aconselhamento psicológico pastoral e sua relevância na igreja e na sociedade atual", "a": "Robson Rego da Silva", "o": "", "k": ["Aconselhamento e cuidado"], "id": "1kqsom2B1OnlwUHlhzrqXojOseJONtidj"}, {"y": "2019", "p": "Cascadura", "t": "Missão ensinadora: uma jornada para toda a vida", "a": "Vanêssa Regina de Oliveira dos Santos", "o": "", "k": ["Educação cristã e EBD"], "id": "1HHDa3TIYnV5a6q2lf4oCJZKZqaTbrMKr"}, {"y": "2019", "p": "Cascadura", "t": "Educação cristã na atualidade", "a": "Vanessa Oliveira Bezerra", "o": "", "k": ["Educação cristã e EBD"], "id": "1ijLY0Xyz0Ip_c6xztz--U40UbhR19KAj"}, {"y": "2019", "p": "Cascadura", "t": "Educação cristã: relevância e boas práticas na atualidade", "a": "Ed Lobato Melo", "o": "", "k": ["Educação cristã e EBD"], "id": "1645daynY2WPYGuHSLsh0KwbzjnqJ-J64"}, {"y": "2020", "p": "Cascadura", "t": "A soteriologia na perspectiva do livro de Jonas", "a": "Anderson Soares da Silva", "o": "Thiago Vogt", "k": ["Doutrina", "Bíblia e exegese"], "id": "1ydcctdrypdwL8GoSa5w6X8DKQsWnkTeF"}, {"y": "2020", "p": "Cascadura", "t": "A salvação na perspectiva paulina: uma abordagem sobre a Epístola aos Romanos com prerrogativas atuais", "a": "André Luiz da Conceição", "o": "Newton Carvalho dos Santos Júnior", "k": ["Doutrina", "Bíblia e exegese"], "id": "1ZBzru_tkbvfEwotUbZWcTiPpRVjUn6Qt"}, {"y": "2020", "p": "Cascadura", "t": "O pensamento de John Wesley sobre a santificação e sua importância para o metodismo contemporâneo", "a": "Carlos Magno Soares Veras", "o": "Alexandre Prado", "k": ["Teologia wesleyana"], "id": "1eMXhTaWJlUfLAH35cbSrTQDMg-LtDEPW"}, {"y": "2020", "p": "Cascadura", "t": "Fundamentos para a plantação de uma igreja e as características do plantador", "a": "Fabio Sobreira", "o": "", "k": ["Evangelização e missão"], "id": "1blK4_egNBm-DsRK5A9Af6H6KvajdJvZZ"}, {"y": "2020", "p": "Cascadura", "t": "Gestão eclesiástica: o desafio de gerir conflitos em igrejas na contemporaneidade", "a": "Igor Pereira da Silva Junior", "o": "José Henrique Francisco", "k": ["Liderança"], "id": "1pmwNWFulqdJKWJl6RutFuMWtuyXdgZH4"}, {"y": "2020", "p": "Cascadura", "t": "Casamento e união estável: desafio pastoral à sociedade pós-moderna", "a": "Jorge Luiz Ferreira de Oliveira", "o": "Anderson Orofino da Silva", "k": ["Família"], "id": "1ho4pG6n1sSYs1c_psYrcP1JYWQqMczpD"}, {"y": "2020", "p": "Cascadura", "t": "Uma breve investigação acerca da possibilidade de diálogo entre a teologia e a psicologia", "a": "Ketelenroze Souza de Azeredo da Silva", "o": "", "k": ["Aconselhamento e cuidado"], "id": "1A5COutBEWybxj1hqvevrsYtpJop12Ztz"}, {"y": "2020", "p": "Cascadura", "t": "A EBD wesleyana e a utilização do marketing, da psicologia e da linguagem como ferramentas eficazes para os dias atuais", "a": "Louzil Batista de Souza", "o": "Thiago Vogt", "k": ["Educação cristã e EBD"], "id": "1zs6dl_KRgZUe9siOirAzP7LcIIlMLl0N"}, {"y": "2020", "p": "Cascadura", "t": "A importância do ensino bíblico para as crianças e suas atribuições", "a": "Luzemar Carneiro Rodrigues", "o": "Reinaldo Simião", "k": ["Educação cristã e EBD", "Crianças"], "id": "1BLDugcBoX-sZzTOcRNq0omN_6mB7iP6u"}, {"y": "2020", "p": "Cascadura", "t": "A soteriologia cristã protestante e a pós-modernidade: teoria, análise e implicações como objeto de estudo", "a": "Vagner Artur Geraldo Pimentel", "o": "Thiago Vogt", "k": ["Doutrina"], "id": "126QKAixfnIuIpKRc4qRRBqL0gea2BCDs"}, {"y": "2021", "p": "Cascadura", "t": "Depressão espiritual: a realidade e o desconhecimento acerca de um mal que precisa ser cuidado", "a": "Arnaldo Alves Mota Filho", "o": "José Henrique Francisco", "k": ["Aconselhamento e cuidado"], "id": "1D0ObG_vxCEe-RdR4m8vUt47zR0sm0TnC"}, {"y": "2021", "p": "Cascadura", "t": "A Escola Bíblica Dominical wesleyana e a utilização do marketing, da psicologia e da linguagem como ferramentas eficazes para os dias atuais", "a": "Louzil Batista de Souza", "o": "Thiago Vogt", "k": ["Educação cristã e EBD"], "id": "186w7nlE-iG8pLr1uoiGVmAZeURHAAtMm"}, {"y": "2021", "p": "Cascadura", "t": "Comportamento ético pastoral ante as demandas da atualidade", "a": "Luciano Telles Ribeiro", "o": "José Henrique Francisco", "k": ["Ministério"], "id": "1f8yU5S-04Z6di-KApG4Q-8rap6JB-84N"}, {"y": "2021", "p": "Cascadura", "t": "Soteriologia: doutrina da salvação para a humanidade através de Jesus Cristo", "a": "Pierre Pereira de Paula", "o": "Tatiana Epifânio dos Santos da Silva", "k": ["Doutrina"], "id": "1pPQI6SjmRqQ5c8iWMI5GEjFYCBesX2jp"}, {"y": "2021", "p": "Cascadura", "t": "Catequese: a ferramenta para o crescimento espiritual da igreja na contemporaneidade", "a": "Alessandro Gomes Cavalcante", "o": "José Henrique Francisco", "k": ["Educação cristã e EBD"], "id": "1KvH2W_Rhpn9UbgOjkHVnQYPQLFW2j4cn"}, {"y": "2021", "p": "Cascadura", "t": "Os benefícios da implantação dos pequenos grupos para o crescimento saudável da igreja", "a": "Ana Paula Barbosa Moreira", "o": "Éderson Correia Cruz", "k": ["Pequenos grupos", "Crescimento da igreja"], "id": "1HwMJ7CykMTUcoSaz6czLUFrwuwaEYt7E"}, {"y": "2021", "p": "Cascadura", "t": "Feminicídio dentro das igrejas cristãs: fato ou fake", "a": "Maria Isabel Falcão Brandão da Silva", "o": "Reinaldo Simião", "k": ["Igreja e sociedade"], "id": "1ODTfkioh_W8pZd9t62sgIyBWMALeqGJP"}, {"y": "2021", "p": "Cascadura", "t": "Josué: um referencial de sucesso para uma liderança cristã eficaz", "a": "Marcelo Berger de Vasconcelos", "o": "Afonso Batista Andrade", "k": ["Liderança", "Bíblia e exegese"], "id": "1GtKgXxynyR5ANfXqIv-bWqdZ8KsZLYG6"}, {"y": "2021", "p": "Cascadura", "t": "O crescimento coletivo e espiritual da igreja no século XXI no Brasil", "a": "Marcos Antonio Carrarini Quarterolli", "o": "Geremias dos Anjos", "k": ["Crescimento da igreja"], "id": "1-pfwVba60J2y4fLpvNZQ10FI8RDoElq0"}, {"y": "2021", "p": "Cascadura", "t": "Diaconia e sua relevância de servir nos dias atuais", "a": "Vilson Gonçalves Carvalhaes", "o": "Geremias dos Anjos", "k": ["Ministério"], "id": "106cS-RKFPS_Km3uuv84VsEnxDLFhsN7O"}, {"y": "2021", "p": "Mantiquira", "t": "Pastorear crianças: desafio e responsabilidade da igreja atual", "a": "Leandro Sabatini", "o": "Joseane Araújo Costa", "k": ["Crianças"], "id": "1_QDLjJkxL6roPLixnpKmOkljRecMlwL_"}, {"y": "2021", "p": "Mantiquira", "t": "A formação de líderes para uma igreja saudável: o discipulado como ferramenta", "a": "Pedro Paulo Carvalho", "o": "Marcelo Souza Silva", "k": ["Liderança", "Discipulado"], "id": "1eeS2P-Wgpeb35vPQ_OJNFn0tuXvrJT_A"}, {"y": "2021", "p": "Mantiquira", "t": "John Wesley: um resumo de sua trajetória ministerial, o impacto da experiência do coração aquecido na Inglaterra do século XVIII e o metodismo", "a": "Rômulo Balbino do Nascimento Silva", "o": "Alexandre Prado", "k": ["Teologia wesleyana"], "id": "14H1LLX6plRYVdZ1MjoitBnLG_NycIM82"}, {"y": "2021", "p": "Mantiquira", "t": "Divórcio no século XXI: prevenção e orientação frente aos desafios atuais na esfera cristã evangélica brasileira", "a": "Weverton Braz Soares da Silva", "o": "Hamilton Cardoso", "k": ["Família"], "id": "1Cev-ASRo8UhMw98QK3WE1g_3OKXp33BN"}, {"y": "2021", "p": "Mantiquira", "t": "Adoração como instrumento de metanoia: a vocação de Davi como espelho para a missão atual", "a": "Anderson da Conceição", "o": "Alexandre Prado", "k": ["Música e adoração"], "id": "10FAtYXDAQfy1Vcu8eih2ejt8lq219Dar"}, {"y": "2021", "p": "Mantiquira", "t": "A graça na percepção paulina: uma reflexão da Epístola aos Romanos para os debates atuais", "a": "André Barbosa Schuab", "o": "Ricardo Souza Ribeiro", "k": ["Doutrina", "Bíblia e exegese"], "id": "1pG2Ghl3YA1L8Vk3zE46nksyEhBmYTxM_"}, {"y": "2021", "p": "Mantiquira", "t": "Oração: em busca de uma teologia para a Igreja Metodista Wesleyana", "a": "Márcia Nóbrega", "o": "Misael Amaral", "k": ["Espiritualidade"], "id": "160vxuO2a-V4lf2qQxEFQtQXSCIaQxVVg"}, {"y": "2021", "p": "Mantiquira", "t": "Maturidade cristã", "a": "Reginaldo Fuli da Silva", "o": "Josias Pereira Lima", "k": ["Espiritualidade"], "id": "1ggbSUj1PIKie7vDu9FNu_0ZG9ZkPsXU0"}, {"y": "2021", "p": "Mantiquira", "t": "Discipulado de Cristo: da antiguidade para os dias atuais", "a": "Shirleila V. Gonçalves Silva", "o": "Marcelo Souza Silva", "k": ["Discipulado"], "id": "1WR9R4VKqqmmqZzLEjkZgsTed2UNlLg_B"}, {"y": "2021", "p": "Mantiquira", "t": "A igreja e a diversidade cultural brasileira: desafios e propostas para a Missio Dei", "a": "Sônia Regina de Jesus Ferrero", "o": "Misael Amaral", "k": ["Evangelização e missão"], "id": "1VmqtygqPeFtvi_vAjPjGbhHEoj3u2jxg"}, {"y": "2022", "p": "Cascadura", "t": "A Bíblia e a arqueologia: uma proposta de diálogo para o campo hermenêutico-exegético atual", "a": "Álan Ribeiro Banni", "o": "Davi Franklin Guedes Tardim", "k": ["Bíblia e exegese"], "id": "18cLQ6kOJmM8nwKlm2Ws7YPdSQeQ49qIX"}, {"y": "2022", "p": "Cascadura", "t": "As vozes discursivas no judaísmo e a mensagem do Reino por Jesus Cristo: análise, conflitos e soluções às divergências entre os opostos", "a": "Edilon da Silva Oliveira", "o": "Alexandre Prado", "k": ["Bíblia e exegese"], "id": "17b3Ze02ZRurWv_cadZyfqhfSo2b19JSA"}, {"y": "2022", "p": "Cascadura", "t": "Pastoreio infantil: uma análise de como as Igrejas Metodistas Wesleyanas do distrito de Mantiquira têm cuidado das crianças", "a": "Gabriel Bilheiro Alves", "o": "Misael Amaral", "k": ["Crianças"], "id": "10y2TTxBBNnTLtw4JWvwKcRHskc48lmmm"}, {"y": "2022", "p": "Cascadura", "t": "Música: sua natureza bíblica, sua importância e suas transformações nos períodos patrístico, da Reforma Protestante e pós-Reforma", "a": "Leonardo Marcelino", "o": "Marcelo Souza Silva", "k": ["Música e adoração"], "id": "1FulteGJW4aVq-9Lg6uqJ1euV1DoMzYE7"}, {"y": "2022", "p": "Cascadura", "t": "Gestão e liderança de pessoas na prática: a liderança de Moisés, seu legado e os reflexos de influência para os dias atuais", "a": "Roseane Rodrigues Ferreira", "o": "Sabrina Matos", "k": ["Liderança"], "id": "15oS8lQ8GRtryEwFFpg2khVkuIygtRpW3"}, {"y": "2022", "p": "Cascadura", "t": "Atos 2: a disponibilidade do batismo com o Espírito Santo e sua relevância para a missão da igreja na atualidade. Uma perspectiva pentecostal", "a": "Tiago P. Simas", "o": "Alexandre Prado", "k": ["Espírito Santo"], "id": "11bvpKBEvOgX70pGln81Yecz6RdaqAkTT"}, {"y": "2022", "p": "Cascadura", "t": "GCEU, uma ferramenta para a administração pastoral", "a": "Vitor Barreto Moreira da Silva", "o": "Miqueias Nechaeff", "k": ["Pequenos grupos"], "id": "1zY90b95jgxRGtT4UVw3QknPWLhXLt6jo"}, {"y": "2022", "p": "Cascadura", "t": "Pragmatismo religioso: tendências e implicações na natureza da igreja no século XXI", "a": "Wilson da Silva Carneiro", "o": "Joseane Araújo Costa", "k": ["Igreja e sociedade"], "id": "1All0gs6zGjUQEZDFLjA6L5dbA7EuyYCQ"}, {"y": "2023", "p": "Cascadura", "t": "O fruto do Espírito e a inteligência emocional: uma proposta relevante para se obter vida cristã estabilizada", "a": "Ana Beloni Silveira Leite", "o": "Luciana Brivio", "k": ["Aconselhamento e cuidado"], "id": "1rGm6jjxMimRuxau-YQSH8UOvVSt1jJcG"}, {"y": "2023", "p": "Cascadura", "t": "A missão evangelizadora da igreja e os desafios da pós-modernidade", "a": "Ana Paula Santos Romão Penha", "o": "Alexandre Prado", "k": ["Evangelização e missão"], "id": "1HRshdncLLs1XUoteJ8W5Pn9uz5mI3FHG"}, {"y": "2023", "p": "Cascadura", "t": "A criação do ponto de vista bíblico: cosmogonia religiosa e cosmologia científica", "a": "Ana Rachel de Souza Pereira Mota", "o": "Éderson Correia Cruz", "k": ["Fé e ciência"], "id": "1l2IKFyxxjkz7eHcykB_Ahj0dFmuq6_aQ"}, {"y": "2023", "p": "Cascadura", "t": "A herança de Adão e o legado de Cristo: uma leitura exegética e hermenêutica de Romanos 5 com foco no plano salvífico", "a": "Bruno Cleibe", "o": "Wallace Anderson", "k": ["Bíblia e exegese", "Doutrina"], "id": "1mMSEbtQlGY4O9tEXlot7ol7yHG6-wxph"}, {"y": "2023", "p": "Cascadura", "t": "A musicalidade na adoração cristã: uma reflexão sobre o papel da música e do canto congregacional", "a": "Caio Camargo", "o": "Alexander Lima", "k": ["Música e adoração"], "id": "1RnV5aQcUaqp-vKVTmNtwTC9EVCBaU86G"}, {"y": "2023", "p": "Cascadura", "t": "Amor ao próximo: uma leitura bíblica através da ótica lucana sobre o cuidado de Cristo com os desfavorecidos", "a": "Claudio G. da Silva", "o": "Alexander Lima", "k": ["Igreja e sociedade", "Bíblia e exegese"], "id": "1fSyUZTzJDI4p10WZS3JApkJTLtzBRUV5"}, {"y": "2023", "p": "Cascadura", "t": "A Escola Bíblica Dominical e a sua missão através da pedagogia cristã", "a": "Cristiane Dias Menezes Lussac Santos", "o": "Anderson Orofino da Silva", "k": ["Educação cristã e EBD"], "id": "1aTpVxDS4tcfI5CzE7yHnDZpm20Ue2UoN"}, {"y": "2023", "p": "Cascadura", "t": "A relevância das práticas pedagógicas na inclusão de crianças autistas na dinâmica das Igrejas Metodistas Wesleyanas da 6ª Região Eclesiástica", "a": "Eny do Carmo da Silva Costa", "o": "Tatiana Epifânio dos Santos da Silva", "k": ["Inclusão", "Crianças"], "id": "1A1I7ZAtJ2yuoYpgKVYQGl468fk9bG6bT"}, {"y": "2023", "p": "Cascadura", "t": "Discipulado: uma reflexão sobre a ordem bíblica como princípio norteador no desenvolvimento e crescimento da igreja", "a": "Erick B. Almeida", "o": "Thiago Vogt", "k": ["Discipulado"], "id": "1fb8TqnIhBNUfV6SefBATmj8XFPaBbSXc"}, {"y": "2023", "p": "Cascadura", "t": "Espiritualidade cristã: sua expressão teológica e compromisso social além das fronteiras da religião", "a": "Fernando Marques de Carvalho", "o": "Thiago Vogt", "k": ["Espiritualidade", "Igreja e sociedade"], "id": "1UPZwdUFvixzFmdTvRkGjUPRsUzzC0tng"}, {"y": "2023", "p": "Cascadura", "t": "A relação entre a igreja e a Polícia Militar: instituições paralelas no combate ao mal e as dificuldades em lidar com a corrupção da natureza humana", "a": "Isaac Alves da Silva", "o": "Roberto Tadeu da Silva Junior", "k": ["Igreja e sociedade"], "id": "1gjTDJfNzIwb0mmxUB5VzJ2LF2ngSfLyJ"}, {"y": "2023", "p": "Cascadura", "t": "Soteriologia: a salvação para a igreja moderna e os desafios em conduzir a igreja à universalidade da salvação", "a": "Jeferson da Costa Silva", "o": "Alexander Lima", "k": ["Doutrina"], "id": "1Y5abGKRnxe92lpTy5rbB2XfapCipTPSY"}, {"y": "2023", "p": "Cascadura", "t": "A música como instrumento facilitador na aprendizagem dos textos bíblicos em Salmos", "a": "Luciana Brivio", "o": "Alexandre Prado", "k": ["Música e adoração", "Bíblia e exegese"], "id": "1CJX4jYQ4-l7b1OCLPLFm8q2v2dTuhwQH"}, {"y": "2023", "p": "Cascadura", "t": "Graça e fé: uma soma necessária para a salvação", "a": "Maria das Neves Soares Alves", "o": "Ana Beloni Silveira Leite", "k": ["Doutrina"], "id": "1Xu8VLFWmlUE4tGVhthz46vQXqucnsRnr"}, {"y": "2023", "p": "Cascadura", "t": "Discipulado: a missão da igreja", "a": "Paulo César Martins da Silva", "o": "José Henrique Francisco", "k": ["Discipulado"], "id": "1BSMlO1TJfn5TEmMPK86MtdKe_6WBazeg"}, {"y": "2023", "p": "Cascadura", "t": "Evangelização e responsabilidade social: diferentes e inseparáveis", "a": "Renan Costa Malvão", "o": "Geremias dos Anjos", "k": ["Evangelização e missão", "Igreja e sociedade"], "id": "1XGtwkSkEyxZLDhn06OqPhvq3uyi4judk"}, {"y": "2023", "p": "Cascadura", "t": "A importância das mulheres vocacionadas no contexto do ministério wesleyano: perspectivas do passado e atuais", "a": "Rosângela Viana Dinelis Neves", "o": "Luciana Brivio", "k": ["Ministério", "Teologia wesleyana"], "id": "1Ty5skBbmWan51Xh2cNy8i-LAKVxYOdND"}, {"y": "2023", "p": "Cascadura", "t": "A igreja e a importância da inclusão e acessibilidade das pessoas com deficiência", "a": "Suelli Barbosa Leite Neres", "o": "Tatiana Epifânio dos Santos da Silva", "k": ["Inclusão"], "id": "1iUe4lCJfPXn8pJeFQuXqCZ3vgKKoNO1h"}, {"y": "2023", "p": "Cascadura", "t": "Igreja na atualidade: o reflexo comportamental e seus desafios no mundo", "a": "Vânia Baiano dos Santos", "o": "Alexander Lima", "k": ["Igreja e sociedade"], "id": "1h5fSPAwy902gJbR2sqmTdNVjVkkRmZoC"}, {"y": "2023", "p": "Cascadura", "t": "Lei e graça: uma leitura atual com prerrogativas bíblicas", "a": "Viviane da Silva Gonçalves", "o": "Alexander Lima", "k": ["Doutrina"], "id": "1M9_b0mO7iCCiwe8guNgBqSZi60hGPZE0"}, {"y": "2023", "p": "Cascadura", "t": "Jesus: o modelo de liderança para os dias atuais", "a": "Eduardo Marques Carvalho", "o": "José Roberto Silva Canário", "k": ["Liderança"], "id": "1vCvk8qJFC9dF7Bc4Wzk_mHjk_65NKqj5"}, {"y": "2024", "p": "Cascadura", "t": "Cosmovisão bíblica cristã e discipulado: missão integral da IMW", "a": "Eliseu Mendes Gervasio Arcanjo", "o": "Roberto Tadeu da Silva Junior", "k": ["Discipulado", "Evangelização e missão"], "id": "1q1MOcZARXdCqcAhMDq6iNkzDPCslv9DS"}, {"y": "2024", "p": "Cascadura", "t": "A licença poética e a desvirtualização da música litúrgica: uma reflexão bíblica para os dias atuais", "a": "Luciano dos Santos", "o": "Tatiana Epifânio dos Santos da Silva", "k": ["Música e adoração"], "id": "1GOxMh_IrzDogTbHI6PIaArSxdpUyB1sE"}, {"y": "2024", "p": "Cascadura", "t": "Renovação espiritual: uma reflexão sobre um coração abrasado na atualidade", "a": "Thiago Tenório Batista de Souza", "o": "Geremias dos Anjos", "k": ["Espiritualidade"], "id": "1mcARgGLjXLaPRhDhJ2blDaBN9nWxTBOR"}, {"y": "2024", "p": "Cascadura", "t": "1 Timóteo 4:16 e as implicações na atualidade: uma reflexão sobre a saúde pastoral e seus desafios", "a": "Michelle Bertino", "o": "Reinaldo Simião", "k": ["Ministério", "Aconselhamento e cuidado"], "id": "1CGTDruj4FTLBGTC_sBAUL55ct7atNrJG"}, {"y": "2024", "p": "Cascadura", "t": "A importância da inclusão de pessoas com deficiência na Igreja Metodista Wesleyana: a salvação em Cristo através da inclusão", "a": "Adriana Santos da Silva Lima", "o": "José Roberto Silva Canário", "k": ["Inclusão"], "id": "1dieQzVof0oLtj4xvTAC2uYlEBiJPagBY"}, {"y": "2024", "p": "Cascadura", "t": "Missão na atualidade pela perspectiva da teologia wesleyana", "a": "Victor Marcel", "o": "Renato Neves", "k": ["Evangelização e missão", "Teologia wesleyana"], "id": "1p6cDzb0B_MJAEVbJCwoPLKPZBWKEAlDe"}, {"y": "2024", "p": "Cascadura", "t": "Os desafios para o novo convertido viver o cristianismo na atualidade", "a": "Marcio Soares Alves", "o": "Tatiana Epifânio dos Santos da Silva", "k": ["Discipulado"], "id": "1pDVZCEt3IsxPqv-ciB8JZbrvTgRMs1_U"}, {"y": "2024", "p": "Cascadura", "t": "Os princípios teológicos de John Wesley e sua relevância na sociedade contemporânea", "a": "Luciana Duarte dos Santos Pena", "o": "Éderson Correia Cruz", "k": ["Teologia wesleyana"], "id": "1Riq22lXAeOVMHRPYggezS7MwQM01XhD-"}, {"y": "2024", "p": "Cascadura", "t": "A influência do movimento G12 sobre o modelo dos pequenos grupos da Igreja Metodista Wesleyana", "a": "Vânia Carneiro Paes", "o": "José Roberto Silva Canário", "k": ["Pequenos grupos"], "id": "1tAZ3DLCuV34PCBgOYnrQVioMJqMTmemN"}, {"y": "2024", "p": "Cascadura", "t": "Atos 2 e a relevância do Espírito Santo: uma reflexão para a igreja da atualidade", "a": "Djair Anchieta dos Santos Gaudard", "o": "Ed Lobato Melo", "k": ["Espírito Santo"], "id": "1VaNgewXQ4lGjB1xx_3_Wv4o--S2xZIf1"}, {"y": "2024", "p": "Cascadura", "t": "Hombridade: o papel do homem cristão na sociedade contemporânea. Uma análise bíblica e suas implicações para a masculinidade autêntica", "a": "Carlos Silveira", "o": "Luciana Brivio", "k": ["Família"], "id": "1I16Gkm4HKC0U2ifrX9Z65OeJzZnhCVnb"}, {"y": "2024", "p": "Cascadura", "t": "Uma análise bíblica sobre a eficácia da música do meio evangélico: um diálogo com a evangelização", "a": "Isaac Faht", "o": "Reinaldo Simião", "k": ["Música e adoração", "Evangelização e missão"], "id": "1-hA1mYOusGE9XZgpPnviaw3Xj_gVu1rl"}, {"y": "2024", "p": "Cascadura", "t": "Fazei discípulos: uma análise e reflexão sobre renúncia, devoção e compromisso na atualidade", "a": "Jirlene Firmino Rabaça", "o": "Ed Lobato Melo", "k": ["Discipulado"], "id": "1fDd6QRGNEzRv2kxohBy8KovRd5FtrJ4X"}, {"y": "2024", "p": "Cascadura", "t": "Aconselhamento bíblico para mulheres cristãs: uma análise contextual e prática no âmbito da Igreja Metodista Wesleyana", "a": "Graciane Borges de Queroz Souza Soares", "o": "Ana Beloni Silveira Leite", "k": ["Aconselhamento e cuidado"], "id": "1zpL22Kwoq8zOAshYbqNqweOQuIZasTiz"}, {"y": "2024", "p": "Cascadura", "t": "Pequenos grupos: uma ferramenta de comunhão, discipulado e consolidação na Igreja Metodista Wesleyana em Mananciais", "a": "Delion Ramos da Silva", "o": "José Roberto Silva Canário", "k": ["Pequenos grupos"], "id": "11EIKBRhHlS1zX9zPbVgwEmx-ygEOjrgP"}, {"y": "2024", "p": "Cascadura", "t": "Discípulo comprometido: uma ótica de reflexão da importância de prosseguirmos no legado de Jesus Cristo", "a": "Claudio Luiz Pereira Rosa", "o": "Alexander Lima", "k": ["Discipulado"], "id": "1ewx1OoaWSz5seSEgwy1iQr6rylHxcHJu"}, {"y": "2024", "p": "Cascadura", "t": "A contextualização da comunicação e suas implicações para a igreja atual", "a": "Cristiane Mendonça da Silva", "o": "Ed Lobato Melo", "k": ["Igreja e sociedade"], "id": "1Ax66gFtJzafQFOeIpmlWwTOuTw1q_Auu"}, {"y": "2024", "p": "Cascadura", "t": "A relevância da ação social e do serviço social na igreja e suas implicações sociais", "a": "Igor Borges de Lima Silva", "o": "José Roberto Silva Canário", "k": ["Igreja e sociedade"], "id": "139jHW-W_JWhMOU4aZHxTOvucyrAFn6QV"}, {"y": "2024", "p": "Cascadura", "t": "A dispersão das gerações subsequentes nas famílias cristãs engajadas nos ministérios das igrejas evangélicas", "a": "Rosemary dos Santos", "o": "Ana Beloni Silveira Leite", "k": ["Família"], "id": "1zkswXV8-Wz0gZ5bn7bMSVoXt8L-In6CN"}, {"y": "2025", "p": "Cascadura", "t": "A centralidade da oração: fundamento espiritual para o crescimento e fortalecimento da igreja contemporânea", "a": "Adriana N. L.", "o": "Renato Neves", "k": ["Espiritualidade", "Crescimento da igreja"], "id": "1JftCyNGpcQf5_wht4xIQ0DbzQk9yfzCR"}, {"y": "2025", "p": "Cascadura", "t": "A atuação do Espírito Santo na comunhão e unidade da igreja: uma reflexão sob a ótica da teologia wesleyana", "a": "Aline Chagas da Silva Ramos", "o": "Thiago Vogt", "k": ["Espírito Santo", "Teologia wesleyana"], "id": "1h-LDhuKWXmmZvAIRiHG4gytWgh0aQxh-"}, {"y": "2025", "p": "Cascadura", "t": "Conversa entre fé cristã e ciência: análise da obra Em Defesa de Cristo, de Lee Strobel", "a": "André Gonçalves de Souza", "o": "Alexandre Prado", "k": ["Fé e ciência"], "id": "16ROAD3R4m2vuJgcarkZ1ELzWumygy8uh"}, {"y": "2025", "p": "Cascadura", "t": "Discernindo o abuso espiritual: um estudo teológico-bíblico e pastoral", "a": "Daiane Serafim A. de Barros", "o": "Roberto Tadeu da Silva Junior", "k": ["Ministério", "Aconselhamento e cuidado"], "id": "1zDuFHU4uc6gy79lib0mvcDXUUZY4h16H"}, {"y": "2025", "p": "Cascadura", "t": "Maturidade cristã como base para uma liderança eficaz: reflexões teológicas e práticas para a igreja contemporânea", "a": "Edgar Edson", "o": "Tatiana Epifânio dos Santos da Silva", "k": ["Liderança", "Espiritualidade"], "id": "1CMExvOtuL3-UfCP6iMklVf4yQuxeOZwq"}, {"y": "2025", "p": "Cascadura", "t": "Discipulado cristão no lar: fundamentos bíblicos e práticas para a formação espiritual dos filhos", "a": "Erlanderson Ramos", "o": "José Roberto Silva Canário", "k": ["Discipulado", "Família"], "id": "10YfvtaGj06D1eaumZ8czkilKaXDg0dXu"}, {"y": "2025", "p": "Cascadura", "t": "Empreender com propósito, conectando negócios a valores eternos: uma perspectiva teológica e missional sobre o empreendedorismo cristão", "a": "Everton Gois", "o": "Roberto Tadeu da Silva Junior", "k": ["Igreja e sociedade", "Evangelização e missão"], "id": "1h8eH1DJBaGm39K-JKBbCg63LH7RXFhIY"}, {"y": "2025", "p": "Cascadura", "t": "A participação dos jovens na missão cristã contemporânea: desafios, potencialidades e caminhos de formação", "a": "Gabriel Cabral", "o": "Alexander Lima", "k": ["Evangelização e missão"], "id": "1sza_MkBn9KgcrB6E2VwgiHOSbyu1OYIg"}, {"y": "2025", "p": "Cascadura", "t": "O ensino cristão de adultos na igreja: um estudo andragógico com base no modelo de Jesus", "a": "Gisele", "o": "Thiago Vogt", "k": ["Educação cristã e EBD"], "id": "17SCog6eL0-vryxmonYELyfb5_NfYYWjb"}, {"y": "2025", "p": "Cascadura", "t": "Discipulado bíblico como fundamento para o crescimento saudável da igreja, aplicado à Igreja Metodista Wesleyana no Brasil", "a": "Heber Severiano Junior", "o": "Roberto Tadeu da Silva Junior", "k": ["Discipulado", "Crescimento da igreja"], "id": "19DgobVQVGD-GJtmQxXSFPR6Iv1_WLqwp"}, {"y": "2025", "p": "Cascadura", "t": "O papel da igreja local na formação de empreendedores missionais: uma reflexão teológica à luz de Business as Mission", "a": "Hudson Joubert Rodrigues da Silva", "o": "Alexandre Prado", "k": ["Igreja e sociedade", "Evangelização e missão"], "id": "1RRR6GEtAaD5sSGCLpvxfmluid5OJGUFl"}, {"y": "2025", "p": "Cascadura", "t": "João Batista, a voz que soou no deserto, e sua relevância na atualidade", "a": "Lindalva C. de Souza Passoumidis", "o": "José Roberto Silva Canário", "k": ["Bíblia e exegese"], "id": "1Q89MOGkdUQCMjW46OIIx_Y_ajryUkwvF"}, {"y": "2025", "p": "Cascadura", "t": "Escola Bíblica Dominical: discipulando a geração atual através do evangelho", "a": "Renato de Almeida da Silva", "o": "Alexander Lima", "k": ["Educação cristã e EBD"], "id": "1JJslgj3TnPmlZzqi1q6IKgAfQ_jXK3Gx"}, {"y": "2025", "p": "Cascadura", "t": "A influência do conhecimento teontológico no enfrentamento de doenças crônicas não transmissíveis", "a": "Ricardo Fonseca Ramos", "o": "Luciana Brivio", "k": ["Aconselhamento e cuidado"], "id": "1o4iGG_O5d731KlBVH8HgXnGwjBOIHrbM"}, {"y": "2025", "p": "Cascadura", "t": "Escola Bíblica Dominical: um paradigma para todos os tempos", "a": "Rogaciano Vieira Alencar", "o": "José Roberto Silva Canário", "k": ["Educação cristã e EBD"], "id": "19zaYjv85Ao046DSr3sfTcTJhLITwbquA"}, {"y": "2025", "p": "Cascadura", "t": "Inclusão eclesiástica de crianças com deficiência auditiva e da fala: acolhimento e acessibilidade à luz da teologia", "a": "Silvia Cristina da Silva Ventura", "o": "Luciana Brivio", "k": ["Inclusão", "Crianças"], "id": "1gAu4FIE3dCklLe3-qmreZ2_Usjpc1CRT"}, {"y": "2025", "p": "Cascadura", "t": "O louvor e a música na adoração: princípios bíblicos e fundamentais para uma adoração cristocêntrica na igreja atual", "a": "Sullivan Alcantara de Souza", "o": "Éderson Correia Cruz", "k": ["Música e adoração"], "id": "187cOBEtf3skx-prv_zSHFh9w0ZPvFN8s"}, {"y": "2025", "p": "Cascadura", "t": "Neopentecostalismo e metodismo no Brasil: uma análise teológico-sociológica das transformações religiosas no século XX", "a": "Sônia Maria de Lima", "o": "Renato Neves", "k": ["Teologia wesleyana", "Igreja e sociedade"], "id": "1dGVaf48b8pb-nXMNsNFl_HRvlFVxlS5i"}, {"y": "2025", "p": "Cascadura", "t": "O egocentrismo na igreja contemporânea e suas implicações para um crescimento saudável", "a": "Tatiana Oliveira de Melo", "o": "Ana Beloni Silveira Leite", "k": ["Crescimento da igreja"], "id": "1Dz-924fH0ralWd1EfGxvMvi7HgNG_q20"}, {"y": "2025", "p": "Cascadura", "t": "Transformação social e espiritual em Nova Iguaçu: um desafio sob a inspiração do pensamento de John Wesley", "a": "Tiago Santana Cordeiro", "o": "José Roberto Silva Canário", "k": ["Igreja e sociedade", "Teologia wesleyana"], "id": "1nEPjLwZ9485CLBESbvU05d0tY4jfY8PX"}, {"y": "2025", "p": "Cascadura", "t": "Planejamento: uma necessidade bíblica e estratégica para a eficácia ministerial", "a": "Welton Luiz", "o": "Ed Lobato Melo", "k": ["Liderança"], "id": "16xmEmtCKHJIGUCa2E8w2tTuGSd-a9Ev5"}];
-const NOTES = {
-  "2021": "Turmas dos polos Cascadura e Mantiquira."
-};
+const NOTES = {"2021":"Turmas dos polos Cascadura e Mantiquira."};
 const ALIAS = {"Ed Lobato":"Ed Lobato Melo","José Roberto Canário":"José Roberto Silva Canário","Reinaldo Simeão":"Reinaldo Simião","Alexander Pereira Lima":"Alexander Lima","Alexandre P Lima":"Alexander Lima"};
 ARTIGOS.forEach(x=>{x.o=ALIAS[x.o]||x.o});
 
-const years=[...new Set(ARTIGOS.map(x=>x.y))].sort().reverse();
+const $=id=>document.getElementById(id);
+const years=[...new Set(ARTIGOS.map(x=>x.y))].sort();
 const orients=[...new Set(ARTIGOS.map(x=>x.o).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"pt-BR"));
 const temas=[...new Set(ARTIGOS.flatMap(x=>x.k))].sort((a,b)=>a.localeCompare(b,"pt-BR"));
-const $=id=>document.getElementById(id);
-$("sTotal").textContent=ARTIGOS.length; $("sYears").textContent=years.length; $("sOrient").textContent=orients.length;
+const per=y=>ARTIGOS.filter(x=>x.y===y).length;
+const max=Math.max(...years.map(per));
+$("fTotal").textContent=ARTIGOS.length; $("fYears").textContent=years.length; $("fOrient").textContent=orients.length;
 orients.forEach(o=>$("orient").add(new Option(o,o)));
 temas.forEach(t=>$("tema").add(new Option(t,t)));
 
+$("shelf").innerHTML=years.map((y,i)=>{
+  const h=38+62*per(y)/max;
+  return `<button class="spine" data-y="${y}" aria-pressed="false" aria-label="${y}, ${per(y)} artigos" style="height:${h}%;animation-delay:${i*60}ms"><span class="n">${per(y)}</span><span class="yr">${y}</span></button>`;
+}).join("");
+
 let year="todos";
-function tabsHTML(){
-  const n=y=>ARTIGOS.filter(x=>y==="todos"||x.y===y).length;
-  $("tabs").innerHTML=["todos",...years].map(y=>`<button class="tab" data-y="${y}" aria-pressed="${y===year}">${y==="todos"?"Todos":y}<small>${n(y)}</small></button>`).join("");
+function setYear(y,push){
+  year=years.includes(y)?y:"todos";
+  document.querySelectorAll(".spine").forEach(b=>b.setAttribute("aria-pressed",b.dataset.y===year));
+  $("all").setAttribute("aria-pressed",year==="todos");
+  $("shelfNote").textContent=year==="todos"?"Mostrando todos os anos":`Mostrando ${year}`;
+  if(push){try{history.replaceState(null,"",year==="todos"?location.pathname:"#ano-"+year)}catch(e){try{location.hash=year==="todos"?"":"ano-"+year}catch(_){}}}
+  render();
 }
-$("tabs").addEventListener("click",e=>{const b=e.target.closest(".tab");if(!b)return;setYear(b.dataset.y,true)});
-function setYear(y,push){year=years.includes(y)?y:"todos";if(push){try{location.hash=year==="todos"?"":"ano-"+year}catch(e){}}tabsHTML();render()}
+$("shelf").addEventListener("click",e=>{const b=e.target.closest(".spine");if(b)setYear(b.dataset.y===year?"todos":b.dataset.y,true)});
+$("all").addEventListener("click",()=>setYear("todos",true));
 window.addEventListener("hashchange",()=>setYear(location.hash.replace("#ano-",""),false));
 
 const fold=s=>s.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase();
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const icon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3h7v7"/><path d="M10 14 21 3"/><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg>';
-function card(x){
-  return `<article class="card">
-    <div class="top"><span>${x.y}</span><span class="polo">${x.p==="Mantiquira"?"Polo Mantiquira":""}</span></div>
+const arrow='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>';
+
+function entry(x){
+  return `<li class="entry">
     <h3 class="${x.t?"":"pending"}">${x.t?esc(x.t):"Título a confirmar"}</h3>
-    <p class="meta"><strong>${esc(x.a)}</strong>${x.o?`<br>Orientação: ${esc(x.o)}`:""}</p>
-    ${x.k.length?`<div class="tags">${x.k.map(k=>`<button class="tag" data-t="${esc(k)}">${esc(k)}</button>`).join("")}</div>`:""}
-    <div class="actions"><a class="btn" href="https://drive.google.com/file/d/${x.id}/view" target="_blank" rel="noopener">Abrir artigo (PDF) ${icon}</a></div>
-  </article>`;
+    <p class="who"><b>${esc(x.a)}</b>${x.o?` – orientação de ${esc(x.o)}`:""}</p>
+    <div class="chips">${x.p==="Mantiquira"?'<span class="chip polo">Polo Mantiquira</span>':""}${x.k.map(k=>`<button class="chip" data-t="${esc(k)}">${esc(k)}</button>`).join("")}</div>
+    <a class="open" href="https://drive.google.com/file/d/${x.id}/view" target="_blank" rel="noopener" aria-label="Abrir PDF: ${esc(x.t||x.a)}">Abrir PDF ${arrow}</a>
+  </li>`;
 }
 function render(){
   const q=fold($("q").value.trim()),o=$("orient").value,t=$("tema").value;
   const list=ARTIGOS.filter(x=>(year==="todos"||x.y===year)&&(!o||x.o===o)&&(!t||x.k.includes(t))&&(!q||fold([x.t,x.a,x.o,x.p,x.k.join(" ")].join(" ")).includes(q)));
-  const ys=years.filter(y=>list.some(x=>x.y===y));
+  const ys=[...years].reverse().filter(y=>list.some(x=>x.y===y));
   $("list").innerHTML=ys.map(y=>{
     const items=list.filter(x=>x.y===y).sort((a,b)=>a.a.localeCompare(b.a,"pt-BR"));
-    return `<section class="year" id="sec-${y}"><h2>${y}<span>${items.length} ${items.length===1?"artigo":"artigos"}</span></h2>${NOTES[y]?`<p class="note">${NOTES[y]}</p>`:""}<div class="grid">${items.map(card).join("")}</div></section>`;
+    return `<section class="year" aria-labelledby="h-${y}">
+      <div class="year-head"><h2 id="h-${y}">${y}</h2><p>${items.length} ${items.length===1?"artigo":"artigos"}${NOTES[y]?". "+NOTES[y]:""}</p></div>
+      <ol class="entries">${items.map(entry).join("")}</ol></section>`;
   }).join("");
   $("count").textContent=list.length+(list.length===1?" artigo":" artigos");
   $("empty").style.display=list.length?"none":"block";
 }
-$("list").addEventListener("click",e=>{const b=e.target.closest(".tag");if(!b)return;$("tema").value=b.dataset.t;render();window.scrollTo({top:document.querySelector(".tools").offsetTop,behavior:"smooth"})});
-$("q").addEventListener("input",render);$("orient").addEventListener("change",render);$("tema").addEventListener("change",render);
+$("list").addEventListener("click",e=>{const c=e.target.closest("button.chip");if(!c)return;$("tema").value=c.dataset.t;render();document.querySelector("main").scrollIntoView()});
+["q"].forEach(id=>$(id).addEventListener("input",render));
+["orient","tema"].forEach(id=>$(id).addEventListener("change",render));
 $("clear").addEventListener("click",()=>{$("q").value="";$("orient").value="";$("tema").value="";setYear("todos",true)});
 setYear(location.hash.replace("#ano-",""),false);
 </script>

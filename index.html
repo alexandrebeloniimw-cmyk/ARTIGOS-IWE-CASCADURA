@@ -72,7 +72,9 @@
   input[type=search],select{font:inherit;font-size:15px;height:44px;border:1px solid var(--line);border-radius:999px;background:var(--paper);color:var(--ink);padding:0 16px}
   input[type=search]{width:100%;padding-left:40px}
   select{flex:0 1 220px;min-width:0;appearance:none;padding-right:36px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%2366666E' stroke-width='1.6'%3E%3Cpath d='M1 1.5l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
-  .count{font-size:14px;color:var(--muted);margin-left:auto;white-space:nowrap}
+  .count{font-size:14px;color:var(--muted);white-space:nowrap}
+  .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .active-filters:empty{display:none}
 
   /* Index */
   main{padding:8px 0 96px}
@@ -99,6 +101,93 @@
   .open svg{width:15px;height:15px}
   .empty{display:none;padding:80px 0;text-align:center;color:var(--muted);font-size:17px}
   .empty button{font:inherit;color:var(--red);background:none;border:0;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+
+
+  /* Section shared */
+  .band{padding:72px 0 8px}
+  .sec-title{font-size:clamp(28px,3.4vw,40px);font-weight:800;letter-spacing:-.03em;line-height:1.05;margin:0 0 10px;color:var(--wine)}
+  .sec-lede{margin:0 0 28px;color:var(--muted);font-size:17px;max-width:62ch}
+
+  /* Finder */
+  .finder{background:var(--paper);border:1px solid var(--line);border-radius:28px;padding:40px;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:40px;position:relative;overflow:hidden}
+  .finder::after{content:"";position:absolute;right:-60px;top:-60px;width:180px;height:180px;border-radius:50%;background:var(--red);opacity:.08}
+  .ask{display:flex;flex-direction:column;gap:12px;position:relative;z-index:1}
+  .ask textarea{font:inherit;font-size:17px;line-height:1.45;min-height:132px;resize:vertical;border:1.5px solid var(--line);border-radius:18px;padding:16px 18px;background:var(--bg);color:var(--ink)}
+  .ask textarea:focus{border-color:var(--blue);background:#fff;outline:none;box-shadow:0 0 0 4px var(--rose)}
+  .ask-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .go{font:inherit;font-weight:600;font-size:15px;border:0;border-radius:999px;background:var(--red);color:#fff;padding:12px 22px;cursor:pointer}
+  .go:hover{background:#B5101F}
+  .tries{font-size:14px;color:var(--muted)}
+  .try{font:inherit;font-size:14px;background:none;border:0;padding:0;color:var(--blue);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+  .matches{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;position:relative;z-index:1}
+  .match{display:grid;grid-template-columns:52px minmax(0,1fr);gap:14px;align-items:start;padding:14px 16px;border-radius:16px;background:var(--bg);border:1px solid transparent}
+  .match:hover{border-color:var(--line);background:#fff}
+  .ring{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:700;color:var(--wine);letter-spacing:-.02em;
+    background:conic-gradient(var(--blue) calc(var(--p)*1%),var(--rose) 0)}
+  .ring span{width:40px;height:40px;border-radius:50%;background:inherit;display:grid;place-items:center;background:#fff}
+  .match h4{margin:0 0 4px;font-family:var(--serif);font-weight:400;font-size:18px;line-height:1.3;color:var(--wine-deep)}
+  .match h4 a{text-decoration:none}
+  .match h4 a:hover{text-decoration:underline;text-underline-offset:3px}
+  .match p{margin:0;font-size:14px;color:var(--muted)}
+  .common{margin-top:6px!important}
+  .common mark{background:var(--red-soft);color:var(--red);border-radius:6px;padding:1px 7px;font-weight:600;font-size:13px;margin-right:4px}
+  .placeholder{color:var(--muted);font-size:15px;border:1.5px dashed var(--line);border-radius:18px;padding:28px;text-align:center;position:relative;z-index:1}
+
+  /* Map */
+  .map{background:var(--paper);border:1px solid var(--line);border-radius:28px;padding:32px 32px 24px;overflow-x:auto}
+  .mx{display:grid;grid-template-columns:minmax(170px,1.4fr) repeat(var(--cols),minmax(44px,1fr)) 64px;align-items:center;min-width:680px}
+  .mx .hd{font-size:13px;font-weight:600;color:var(--muted);text-align:center;padding:0 0 12px}
+  .mx .hd:first-child{text-align:left}
+  .mx .row{display:contents}
+  .tname{font:inherit;text-align:left;background:none;border:0;padding:9px 10px 9px 0;font-size:15px;font-weight:500;color:var(--ink);cursor:pointer;border-top:1px solid var(--line)}
+  .tname:hover,.row.on .tname{color:var(--red)}
+  .cell{display:grid;place-items:center;height:44px;border-top:1px solid var(--line);position:relative}
+  .dot{border:0;padding:0;border-radius:50%;background:var(--wine);cursor:pointer;transition:transform .15s,background .15s}
+  .dot:hover,.dot:focus-visible{transform:scale(1.18);background:var(--red)}
+  .zero{width:4px;height:4px;border-radius:50%;background:var(--line)}
+  .tot{border-top:1px solid var(--line);height:44px;display:flex;align-items:center;justify-content:flex-end;gap:8px;font-size:14px;font-weight:600;color:var(--ink)}
+  .tot i{display:block;height:6px;border-radius:3px;background:var(--blue);opacity:.55}
+  .map-foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center;margin-top:16px;font-size:13.5px;color:var(--muted)}
+  .legend{display:flex;align-items:center;gap:14px}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .legend b{display:inline-block;border-radius:50%;background:var(--wine)}
+  .tip{position:fixed;z-index:20;pointer-events:none;background:var(--wine-deep);color:#fff;font-size:13.5px;line-height:1.35;padding:8px 11px;border-radius:10px;max-width:260px;opacity:0;transform:translateY(4px);transition:opacity .12s,transform .12s}
+  .tip.show{opacity:1;transform:none}
+  .tip b{display:block;font-weight:600}
+
+  /* View toggle */
+  .seg{display:inline-flex;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:3px}
+  .seg button{font:inherit;font-size:14px;font-weight:600;border:0;background:none;color:var(--muted);padding:8px 14px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+  .seg button svg{width:15px;height:15px}
+  .seg button[aria-pressed=true]{background:var(--wine);color:#fff}
+  .active-filters{display:flex;gap:8px;flex-wrap:wrap;width:100%}
+  .af{font:inherit;font-size:13px;font-weight:600;border:0;border-radius:999px;background:var(--wine);color:#fff;padding:5px 8px 5px 12px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+  .af::after{content:"×";font-size:16px;line-height:1;opacity:.75}
+
+  /* Table */
+  .tbl-wrap{margin-top:32px;background:var(--paper);border:1px solid var(--line);border-radius:22px;overflow:auto;max-height:78vh}
+  table{border-collapse:separate;border-spacing:0;width:100%;min-width:900px;font-size:14.5px}
+  thead th{position:sticky;top:0;background:var(--wine);color:#fff;text-align:left;font-weight:600;padding:0;z-index:1;white-space:nowrap}
+  thead th button{font:inherit;color:inherit;background:none;border:0;padding:14px 16px;width:100%;text-align:left;cursor:pointer;display:flex;align-items:center;gap:6px}
+  thead th button::after{content:"↕";opacity:.4;font-size:12px}
+  thead th[aria-sort=ascending] button::after{content:"↑";opacity:1}
+  thead th[aria-sort=descending] button::after{content:"↓";opacity:1}
+  thead th.static{padding:14px 16px}
+  tbody td{padding:13px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+  tbody tr:hover td{background:var(--bg)}
+  td.y{font-weight:700;color:var(--red);white-space:nowrap}
+  td.t{font-family:var(--serif);font-size:16px;color:var(--wine-deep);min-width:320px;line-height:1.35}
+  td.a{white-space:nowrap;font-weight:600}
+  td.o{color:var(--muted);white-space:nowrap}
+  td .chip{font-size:12px;padding:2px 9px;margin:0 4px 4px 0;white-space:nowrap}
+  td.p a{display:inline-flex;align-items:center;gap:6px;font-weight:600;color:var(--blue);text-decoration:none;white-space:nowrap}
+  td.p a:hover{color:var(--red)}
+  td.p svg{width:14px;height:14px}
+
+  @media (max-width:900px){
+    .finder{grid-template-columns:1fr;padding:26px;gap:24px;border-radius:22px}
+    .map{padding:22px 18px;border-radius:22px}
+  }
 
   footer{background:var(--wine);color:#C9D1EC;font-size:14px;border-top:6px solid var(--red)}
   footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;padding-top:36px;padding-bottom:36px}
@@ -158,7 +247,44 @@
   </div>
 </header>
 
-<div class="tools">
+
+<section class="band" id="parecidos" aria-labelledby="t-parecidos">
+  <div class="wrap">
+    <div class="finder">
+      <div class="ask">
+        <h2 class="sec-title" id="t-parecidos">Encontre trabalhos parecidos com o seu</h2>
+        <p class="sec-lede" style="margin-bottom:8px">Escreva o tema, o título provisório ou algumas palavras-chave da sua pesquisa. A página procura no acervo os artigos que tratam de assuntos próximos.</p>
+        <label for="ask" class="visually-hidden">Tema da sua pesquisa</label>
+        <textarea id="ask" placeholder="Ex.: o discipulado nos pequenos grupos da igreja local"></textarea>
+        <div class="ask-row">
+          <button class="go" id="go">Buscar parecidos</button>
+          <span class="tries">ou experimente:
+            <button class="try">música e adoração</button>,
+            <button class="try">inclusão de crianças</button>,
+            <button class="try">John Wesley e santificação</button>
+          </span>
+        </div>
+      </div>
+      <div id="matchesBox"><p class="placeholder">Os artigos mais próximos do seu tema aparecem aqui, do mais parecido para o menos parecido.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="mapa" aria-labelledby="t-mapa">
+  <div class="wrap">
+    <h2 class="sec-title" id="t-mapa">Mapa temático</h2>
+    <p class="sec-lede">Veja quais assuntos já foram pesquisados e em que ano. Clique num tema para ver todos os trabalhos dele, ou num ponto para ver só os daquele ano.</p>
+    <div class="map"><div class="mx" id="mx"></div>
+      <div class="map-foot">
+        <div class="legend" id="legend" aria-hidden="true"></div>
+        <span>Um artigo pode estar em mais de um tema.</span>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="tip" id="tip" role="tooltip"></div>
+
+<div class="tools" id="acervo">
   <div class="wrap">
     <label class="field">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
@@ -166,7 +292,12 @@
     </label>
     <select id="tema" aria-label="Filtrar por tema"><option value="">Todos os temas</option></select>
     <select id="orient" aria-label="Filtrar por orientador"><option value="">Todos os orientadores</option></select>
+    <div class="seg" role="group" aria-label="Forma de exibição">
+      <button id="vList" aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>Lista</button>
+      <button id="vTable" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 10v10"/></svg>Tabela</button>
+    </div>
     <span class="count" id="count" aria-live="polite"></span>
+    <div class="active-filters" id="af"></div>
   </div>
 </div>
 
@@ -236,7 +367,9 @@ function render(){
   const q=fold($("q").value.trim()),o=$("orient").value,t=$("tema").value;
   const list=ARTIGOS.filter(x=>(year==="todos"||x.y===year)&&(!o||x.o===o)&&(!t||x.k.includes(t))&&(!q||fold([x.t,x.a,x.o,x.p,x.k.join(" ")].join(" ")).includes(q)));
   const ys=[...years].reverse().filter(y=>list.some(x=>x.y===y));
-  $("list").innerHTML=ys.map(y=>{
+  pills();markMap();
+  if(view==="table"){$("list").innerHTML=list.length?table(list):"";}
+  else $("list").innerHTML=ys.map(y=>{
     const items=list.filter(x=>x.y===y).sort((a,b)=>a.a.localeCompare(b.a,"pt-BR"));
     return `<section class="year" aria-labelledby="h-${y}">
       <div class="year-head"><h2 id="h-${y}">${y}</h2><p>${items.length} ${items.length===1?"artigo":"artigos"}${NOTES[y]?". "+NOTES[y]:""}</p></div>
@@ -249,6 +382,89 @@ $("list").addEventListener("click",e=>{const c=e.target.closest("button.chip");i
 ["q"].forEach(id=>$(id).addEventListener("input",render));
 ["orient","tema"].forEach(id=>$(id).addEventListener("change",render));
 $("clear").addEventListener("click",()=>{$("q").value="";$("orient").value="";$("tema").value="";setYear("todos",true)});
+
+/* ---------- view toggle + table ---------- */
+let view="list", sortKey="y", sortDir=-1;
+function setView(v){view=v;$("vList").setAttribute("aria-pressed",v==="list");$("vTable").setAttribute("aria-pressed",v==="table");render()}
+$("vList").addEventListener("click",()=>setView("list"));
+$("vTable").addEventListener("click",()=>setView("table"));
+const COLS=[["y","Ano"],["t","Título"],["a","Autor"],["o","Orientador"]];
+function table(list){
+  const s=[...list].sort((p,q)=>{const a=(p[sortKey]||""),b=(q[sortKey]||"");return (a.localeCompare(b,"pt-BR",{numeric:true})||p.a.localeCompare(q.a,"pt-BR"))*sortDir});
+  const th=COLS.map(([k,l])=>`<th aria-sort="${sortKey===k?(sortDir>0?"ascending":"descending"):"none"}"><button data-k="${k}">${l}</button></th>`).join("");
+  return `<div class="tbl-wrap"><table><thead><tr>${th}<th class="static">Temas</th><th class="static">PDF</th></tr></thead><tbody>${s.map(x=>`<tr>
+    <td class="y">${x.y}</td><td class="t">${x.t?esc(x.t):"<i>Título a confirmar</i>"}</td><td class="a">${esc(x.a)}</td><td class="o">${esc(x.o||"–")}</td>
+    <td>${x.p==="Mantiquira"?'<span class="chip polo">Mantiquira</span>':""}${x.k.map(k=>`<button class="chip" data-t="${esc(k)}">${esc(k)}</button>`).join("")}</td>
+    <td class="p"><a href="https://drive.google.com/file/d/${x.id}/view" target="_blank" rel="noopener">Abrir ${arrow}</a></td></tr>`).join("")}</tbody></table></div>`;
+}
+$("list").addEventListener("click",e=>{const b=e.target.closest("th button");if(!b)return;const k=b.dataset.k;if(sortKey===k)sortDir*=-1;else{sortKey=k;sortDir=k==="y"?-1:1}render()});
+
+/* ---------- active filter pills ---------- */
+function pills(){
+  const f=[];
+  if(year!=="todos")f.push(["year",year]);
+  if($("tema").value)f.push(["tema",$("tema").value]);
+  if($("orient").value)f.push(["orient",$("orient").value]);
+  if($("q").value.trim())f.push(["q","“"+$("q").value.trim()+"”"]);
+  $("af").innerHTML=f.map(([k,v])=>`<button class="af" data-k="${k}" aria-label="Remover filtro ${esc(v)}">${esc(v)}</button>`).join("");
+}
+$("af").addEventListener("click",e=>{const b=e.target.closest(".af");if(!b)return;const k=b.dataset.k;
+  if(k==="year")setYear("todos",true);else{ if(k==="q")$("q").value="";else $(k).value=""; render();}});
+
+/* ---------- thematic map ---------- */
+const tip=$("tip");
+function showTip(e,html){tip.innerHTML=html;tip.classList.add("show");const r=e.target.getBoundingClientRect();
+  tip.style.left=Math.min(innerWidth-270,Math.max(8,r.left+r.width/2-120))+"px";tip.style.top=(r.top-tip.offsetHeight-10)+"px"}
+function hideTip(){tip.classList.remove("show")}
+(function buildMap(){
+  const tm=temas.map(t=>({t,n:ARTIGOS.filter(x=>x.k.includes(t)).length})).sort((a,b)=>b.n-a.n);
+  const maxN=tm[0].n;
+  const cellMax=Math.max(...tm.flatMap(({t})=>years.map(y=>ARTIGOS.filter(x=>x.y===y&&x.k.includes(t)).length)));
+  const size=c=>Math.round(8+ (c-1)/(Math.max(cellMax,2)-1)*18);
+  let h=`<div class="hd">Tema</div>${years.map(y=>`<div class="hd">${y}</div>`).join("")}<div class="hd" style="text-align:right">Total</div>`;
+  tm.forEach(({t,n})=>{
+    h+=`<div class="row" data-t="${esc(t)}"><button class="tname" data-t="${esc(t)}">${esc(t)}</button>`;
+    years.forEach(y=>{const c=ARTIGOS.filter(x=>x.y===y&&x.k.includes(t)).length;
+      h+=`<div class="cell">${c?`<button class="dot" data-t="${esc(t)}" data-y="${y}" data-c="${c}" style="width:${size(c)}px;height:${size(c)}px" aria-label="${esc(t)} em ${y}: ${c} ${c>1?"trabalhos":"trabalho"}"></button>`:'<span class="zero"></span>'}</div>`});
+    h+=`<div class="tot"><i style="width:${Math.round(n/maxN*34)}px"></i>${n}</div></div>`;
+  });
+  $("mx").style.setProperty("--cols",years.length);
+  const mid=Math.max(2,Math.round(cellMax/2));
+  $("legend").innerHTML=[1,mid,cellMax].map(c=>`<span><b style="width:${size(c)}px;height:${size(c)}px"></b>${c} ${c>1?"trabalhos":"trabalho"}</span>`).join("");
+  $("mx").innerHTML=h;
+  $("mx").addEventListener("mouseover",e=>{const d=e.target.closest(".dot");if(d)showTip(e,`<b>${esc(d.dataset.t)} · ${d.dataset.y}</b>${d.dataset.c} ${d.dataset.c>1?"trabalhos":"trabalho"} – clique para ver`)});
+  $("mx").addEventListener("focusin",e=>{const d=e.target.closest(".dot");if(d)showTip(e,`<b>${esc(d.dataset.t)} · ${d.dataset.y}</b>${d.dataset.c} ${d.dataset.c>1?"trabalhos":"trabalho"}`)});
+  $("mx").addEventListener("mouseout",hideTip);$("mx").addEventListener("focusout",hideTip);
+  $("mx").addEventListener("click",e=>{const b=e.target.closest(".dot,.tname");if(!b)return;hideTip();
+    $("tema").value=b.dataset.t;$("q").value="";$("orient").value="";
+    setYear(b.dataset.y||"todos",true);$("acervo").scrollIntoView({behavior:"smooth"})});
+})();
+function markMap(){const t=$("tema").value;document.querySelectorAll("#mx .row").forEach(r=>r.classList.toggle("on",r.dataset.t===t))}
+
+/* ---------- similar-work finder ---------- */
+const STOP=new Set("a o as os um uma uns umas de da do das dos em no na nos nas por pela pelo pelas pelos para com sem sob sobre entre e ou que se sua seu suas seus como ao aos à às é ser são sua nosso nossa nossos nossas atual atuais atualidade dias hoje uma reflexão análise estudo perspectiva luz partir através base importância relevância papel desafios contemporânea contemporâneo contemporaneidade igreja igrejas cristã cristão cristãos cristãs século xxi meu minha trabalho pesquisa tema".split(" ").map(w=>fold(w)));
+const stem=w=>{w=fold(w);if(w.length<=4)return w;w=w.replace(/(oes|aes|coes|cao|mente|idade|idades|ismo|ista|istas|ica|icas|ico|icos|al|ais|es|s)$/,"");return w.slice(0,6)};
+const toks=s=>(s||"").toLowerCase().split(/[^a-z0-9à-ÿ]+/).filter(w=>w.length>2&&!STOP.has(fold(w)));
+const DOCS=ARTIGOS.map(x=>{const words=[...toks(x.t),...toks(x.k.join(" ")),...toks(x.k.join(" "))];const m=new Map();words.forEach(w=>{const s=stem(w);if(!m.has(s))m.set(s,w)});return{x,set:new Set(words.map(stem)),orig:m}});
+const DF=new Map();DOCS.forEach(d=>d.set.forEach(s=>DF.set(s,(DF.get(s)||0)+1)));
+const idf=s=>Math.log(1+ARTIGOS.length/(DF.get(s)||ARTIGOS.length));
+function findSimilar(){
+  const q=$("ask").value.trim();const box=$("matchesBox");
+  if(!q){box.innerHTML='<p class="placeholder">Escreva o tema da sua pesquisa para ver os trabalhos parecidos.</p>';return}
+  const qs=[...new Set(toks(q).map(stem))].filter(s=>DF.has(s));
+  if(!qs.length){box.innerHTML='<p class="placeholder">Nenhum artigo do acervo usa essas palavras. Tente sinônimos ou um termo mais amplo, como “discipulado”, “família” ou “música”.</p>';return}
+  const total=qs.reduce((a,s)=>a+idf(s),0);
+  const res=DOCS.map(d=>{const hit=qs.filter(s=>d.set.has(s));return{d,hit,score:hit.reduce((a,s)=>a+idf(s),0)/total}}).filter(r=>r.score>0).sort((a,b)=>b.score-a.score).slice(0,6);
+  box.innerHTML=`<ol class="matches">${res.map(({d,hit,score})=>{const x=d.x,p=Math.max(8,Math.round(score*100));return `<li class="match">
+    <div class="ring" style="--p:${p}"><span>${p}%</span></div>
+    <div><h4><a href="https://drive.google.com/file/d/${x.id}/view" target="_blank" rel="noopener">${esc(x.t||"Título a confirmar")}</a></h4>
+    <p>${esc(x.a)} – ${x.y}${x.o?` – orientação de ${esc(x.o)}`:""}</p>
+    <p class="common">${hit.slice(0,4).map(s=>`<mark>${esc(d.orig.get(s)||s)}</mark>`).join("")}</p></div></li>`}).join("")}</ol>`;
+}
+$("go").addEventListener("click",findSimilar);
+$("ask").addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();findSimilar()}});
+document.querySelectorAll(".try").forEach(b=>b.addEventListener("click",()=>{$("ask").value=b.textContent;findSimilar()}));
+
 setYear(location.hash.replace("#ano-",""),false);
 </script>
 </body>
